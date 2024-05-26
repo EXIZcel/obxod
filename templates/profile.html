@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<div class="row py-5 px-4">
+    <div class="col-md-5 mx-auto"> <!-- Profile widget -->
+        <div class="bg-white shadow rounded overflow-hidden">
+            <div class="px-4 pt-0 pb-4 cover">
+                <div class="media align-items-end profile-head">
+                    <div class="profile mr-3">
+                        <img
+                                src="\static\img{% if user.image %}{{ user.image }}{% else %}{{ default_user_avatar }}{% endif %}"
+                                alt="..." width="130" class="rounded mb-2 img-thumbnail">
+
+                    </div>
+
+                    <div class="media-body mb-5 text-white"><h4 class="mt-0 mb-0">{{user.name}}</h4>
+                    </div>
+                    {% if current_user.id == user.id %}
+                    <a href="/edit_profile"
+                           class="btn btn-outline-dark btn-sm btn-block">Редактировать
+                        {% endif %}
+                            </a>
+
+                            </a>
+                </div>
+            </div>
+            <div class="bg-light p-4 d-flex justify-content-end text-center">
+                </ul>
+            </div>
+            <div class="px-4 py-3"><h5 class="mb-0">О себе</h5>
+                <div class="p-4 rounded shadow-sm bg-light">
+                    {{user.about}}
+                </div>
+            </div>
+            </div>
+        </div>
+    <style>
+        body {
+            background-color: #333333; /* Замените значение на нужный вам цвет */
+        }
+    </style>
+    </div>
+</div>
+
+{% endblock %}
